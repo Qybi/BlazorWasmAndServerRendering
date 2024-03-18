@@ -1,0 +1,79 @@
+﻿@page "/customers/manage"
+@page "/customers/manage/{id:int}"
+@using CLED.OnlineShop2.Web.Client.Models
+@using CLED.OnlineShop2.Web.Client.Services
+@inject ICustomerService _custService
+@inject NavigationManager Nav
+
+@rendermode InteractiveWebAssembly
+
+<h3>Edit customer</h3>
+
+<EditForm Model="Customer"
+		  FormName="createUpdate"
+		  OnValidSubmit="SendData">
+	<InputNumber style="display: none;" @bind-Value="Customer.Id" />
+
+	<div class="form-group">
+		<label for="txtName">Name</label>
+		<InputText id="txtName"
+				   class="form-control"
+				   @bind-Value="Customer.Name" />
+	</div>
+
+	<div class="form-group">
+		<label for="phone">Phone</label>
+		<InputText id="phone" class="form-control" @bind-Value="Customer.Phone" />
+	</div>
+
+	<div class="form-group">
+		<label for="address">Address</label>
+		<InputText id="address" class="form-control" @bind-Value="Customer.Address" />
+	</div>
+
+	<br />
+
+	@if (Id.HasValue)
+	{
+		<button type="submit" class="btn btn-primary">Update</button>
+	}
+	else
+	{
+		<button type="submit" class="btn btn-primary">Create</button>
+	}
+	<a href="/" class="btn btn-secondary">Cancel</a>
+</EditForm>
+
+
+@code {
+	[Parameter]
+	public int? Id { get; set; }
+
+	[SupplyParameterFromForm]
+	private Customer? Customer { get; set; } = new();
+
+	// [CascadingParameter]
+	// public HttpContext Context { get; set; } = default!;
+
+	protected override async Task OnInitializedAsync()
+	{
+		// if (HttpMethods.IsGet(Context.Request.Method))
+		// {
+		if (Id.HasValue)
+			Customer = await _custService.GetById(Id.Value);
+		// }
+	}
+
+	private async Task SendData()
+	{
+		if (Id.HasValue)
+		{
+			await _custService.Update(Customer);
+		}
+		else
+		{
+			await _custService.Create(Customer);
+		}
+		Nav.NavigateTo("/"); //naviga alla home
+	}
+}

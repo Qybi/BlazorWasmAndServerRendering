@@ -1,0 +1,37 @@
+﻿@using CLED.OnlineShop2.Web.Client.Models
+@using CLED.OnlineShop2.Web.Client.Services
+@rendermode InteractiveWebAssembly
+@inject ICustomerService _custService
+
+<h3>Customers</h3>
+
+<a class="btn btn-outline-primary" href="/customers/manage">Add</a>
+<ul>
+	@foreach (var customer in _customers)
+	{
+		<li>
+			<span hidden>@customer.Id</span>
+			<div>
+				@customer.Name
+			</div>
+			<div>
+				@customer.Phone
+			</div>
+			<div>
+				@customer.Address
+			</div>
+			<div>
+				<a class="btn btn-sm btn-outline-secondary" href="/customers/manage/@customer.Id">Edit</a>
+			</div>
+		</li>
+	}
+</ul>
+
+@code {
+    private IEnumerable<Customer> _customers = [];
+
+    protected override async Task OnInitializedAsync()
+	{
+		_customers = await _custService.GetCustomersAsync();
+	}
+}

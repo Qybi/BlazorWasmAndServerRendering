@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34607.119
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CLED.OnlineShop2.Web", "CLED.OnlineShop2.Web\CLED.OnlineShop2.Web\CLED.OnlineShop2.Web.csproj", "{96230803-46A6-4518-874A-BCFD69FD9F77}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CLED.OnlineShop2.Web.Client", "CLED.OnlineShop2.Web\CLED.OnlineShop2.Web.Client\CLED.OnlineShop2.Web.Client.csproj", "{3A8B6AD0-B23D-4221-95AB-F09E8CE099F9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{96230803-46A6-4518-874A-BCFD69FD9F77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96230803-46A6-4518-874A-BCFD69FD9F77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96230803-46A6-4518-874A-BCFD69FD9F77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96230803-46A6-4518-874A-BCFD69FD9F77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A8B6AD0-B23D-4221-95AB-F09E8CE099F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A8B6AD0-B23D-4221-95AB-F09E8CE099F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A8B6AD0-B23D-4221-95AB-F09E8CE099F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A8B6AD0-B23D-4221-95AB-F09E8CE099F9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {040219C2-948E-4824-811A-ADCCC326C3E0}
+	EndGlobalSection
+EndGlobal

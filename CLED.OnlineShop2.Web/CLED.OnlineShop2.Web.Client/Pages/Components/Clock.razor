@@ -1,0 +1,23 @@
+﻿@using System.Timers;
+
+<h3>@_text</h3>
+
+@code {
+	private System.Timers.Timer? _timer;
+	private string _text = string.Empty;
+
+	protected async override Task OnInitializedAsync()
+	{
+		_text = DateTime.Now.ToString("HH:mm:ss");
+		_timer = new System.Timers.Timer(1000);
+		_timer.Elapsed += Timer_Elasped;
+		_timer.Start();
+	}
+
+	protected void Timer_Elasped(object sender, System.Timers.ElapsedEventArgs e)
+	{
+		_text = DateTime.Now.ToString("HH:mm:ss");
+		// state has changed dice al motore di blazor che qualcosa è cambiato e che deve aggiornare la UI
+		InvokeAsync(StateHasChanged);
+	}
+}

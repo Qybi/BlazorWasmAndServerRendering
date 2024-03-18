@@ -1,0 +1,24 @@
+﻿@page "/test"
+@rendermode InteractiveServer
+<h3>Test</h3>
+
+@if(_visible)
+{
+    <ul>
+        @foreach (var item in _list)
+        {
+            <li>@item</li>
+        }
+    </ul>
+}
+<button type="button" class="btn btn-primary" @onclick="Add">Add</button>
+<button type="button" class="btn btn-secondary" @onclick="() => _visible = !_visible">Toggle</button>
+
+@code {
+    private bool _visible = true;
+    private List<string> _list = [];
+    public void Add()
+    {
+        _list.Add(DateTime.Now.ToString());
+    }
+}
